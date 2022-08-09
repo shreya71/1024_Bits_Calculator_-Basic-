@@ -1,6 +1,6 @@
 # 1024_Bits_Calculator_-Basic-
 
-A code that calculates addition, subtraction and multiolication operations for big numbers. 
+A code that calculates addition, subtraction and multiplication operations for big numbers. 
 Results for substraction are given with signs according the the inputs given.
 eg:-
      if,
