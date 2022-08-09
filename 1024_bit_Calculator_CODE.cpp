@@ -37,7 +37,7 @@ int bigger(string s1, string s2)
         big = 2;
     return big;
 }
-void addition(string s1, string s2)
+string addition(string s1, string s2)
 {
     int n;
      reverse(s1.begin(), s1.end());
@@ -108,13 +108,13 @@ void addition(string s1, string s2)
         reverse(f.begin(), f.end());
         int ans_check = check(f) ;
         if(ans_check == -1)
-            cout << "Not under range of 1024 bits, run the program again" << endl;
+           return "Not under range of 1024 bits, run the program again" ;
         else if(n >1)
-        cout << f << endl;
+        return f;
         else
         {
         reverse(f.begin(), f.end());
-        cout << f << endl;
+        return f;
         }
 }
 void substraction(string s1, string s2)
@@ -222,6 +222,23 @@ void substraction(string s1, string s2)
         cout << "-" << f << endl;
     }
 }
+void product(string s1, string s2)
+{
+    string product_result = "0";
+    int n2 = s2.length(), n1 = s1.length(), p = 0, sum = 0;
+    while(n2 > 0)
+    {
+        int t = (s2[n2-1] - '0' ) * pow(10, p) ;
+        for(int i = 0; i < n1 ; i++)
+        {
+            int temp =  (s1[n1-1-i]-'0') * pow(10, i) * t ;
+            string tem = to_string(temp) ;
+            product_result = addition(product_result, tem) ;
+        }
+        n2--; p++;
+    }
+    cout << product_result << endl;
+}
 int main()
 {
     string s1, s2;
@@ -241,6 +258,7 @@ int main()
     cin >> s2;
     int c2 = check(s2);
      }
-   addition(s1, s2);
+   cout << addition(s1, s2) << endl;
    substraction(s1, s2);
+   product(s1,s2) ;
 }
